@@ -29,10 +29,10 @@ const PhoneNumber = ({ navigation }: PhoneProps) => {
 
     return (
 
-        <View style={styles.container}>
+        <View style={{ display: "flex", flexDirection: "row", justifyContent:'space-between', alignItems:'center' }}>
 
 
-            <TouchableOpacity style={styles.flagbutton}>
+            <TouchableOpacity style={{ height: 60, width:89, borderWidth:1, flexDirection:'row', alignItems:'center', borderRadius:16, borderColor:'#E7EBF3' }}>
                 <CountryPicker
                     {...{
                         countryCode,
@@ -53,32 +53,33 @@ const PhoneNumber = ({ navigation }: PhoneProps) => {
 
 
 
-            <View style={styles.phoneInputContainer}>
-                <TextInput
-                    label="Phone Number"
-                    style={styles.phoneNumber}
-                    theme={{
-                        colors: {
-                            primary: 'black',
-                            background: 'white',
-                            placeholder: 'gray',
-                            text: 'black',
-                            error: 'red',
-                        },
-                        roundness: 16,
-                    }}
-                    underlineStyle={{
-                        display: 'none',
-                    }}
-                    underlineColor={'transparent'}
-                    textColor="black"
-                    activeUnderlineColor={'black'}
-                    mode="outlined"
-                    value={phoneValue}
-                    onChangeText={handlePhoneInputChange}
+            {/* <View style={styles.phoneInputContainer}> */}
+            <TextInput
+                label="Phone Number"
+                style={{ height: 60, width: 267 }}
+                theme={{
+                    colors: {
+                        primary: 'black',
+                        background: 'white',
+                        placeholder: 'gray',
+                        text: 'black',
+                        error: 'red',
+                    },
+                    roundness: 16,
+                }}
+                underlineStyle={{
+                    display: 'none',
+                }}
+                underlineColor={'transparent'}
+                outlineColor="#E7EBF3"
+                textColor="black"
+                activeUnderlineColor={'#E7EBF3'}
+                mode="outlined"
+                value={phoneValue}
+                onChangeText={handlePhoneInputChange}
 
-                />
-            </View>
+            />
+            {/* </View> */}
 
         </View>
     );

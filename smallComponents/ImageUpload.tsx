@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Avatar } from 'react-native-paper';
@@ -51,11 +51,12 @@ const ImageUpload = () => {
                 </View>
 
                 <View>
-                    {selectedImage ? (
+                    {/* {selectedImage ? (
                         <Avatar.Image source={{ uri: selectedImage }} size={140} style={styles.avatar} />
                     ) : (
                         <Avatar.Image source={require('../assets/ladkiPhoto.png')} size={140} style={styles.avatar} />
-                    )}
+                    )} */}
+                    <Image source={selectedImage ? { uri: selectedImage } : require('../assets/ladkiPhoto.png')} size={140} style={styles.avatar} />
                 </View>
 
                 <View>

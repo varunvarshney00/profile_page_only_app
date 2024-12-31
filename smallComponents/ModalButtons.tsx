@@ -130,7 +130,7 @@ const ModalButtons: React.FC<ModalButtonsProps> = ({ setSelectedImage }) => {
                     <Image source={require('../assets/rightIcon.png')} style={styles.rightIcon} />
                 </TouchableOpacity>
 
-                
+
 
                 <TouchableOpacity
                     style={styles.button}

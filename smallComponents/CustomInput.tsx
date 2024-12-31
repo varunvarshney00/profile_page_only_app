@@ -6,10 +6,18 @@ import { Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 
-const CustomInput = ({ label, birthday, gender }) => {
+const CustomInput = ({ label, birthday, gender, onFocus }) => {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
     const [isGenderPickerVisible, setGenderPickerVisibility] = useState(false);
     const [selectedGender, setSelectedGender] = useState('');
+    const [pickedDate, setPickedDate] = useState('');
+
+    const formatDate = (date) => {
+        let day = date.getDate();
+        let month = date.getMonth() + 1; // Months are zero-indexed
+        let year = date.getFullYear();
+        return `${month}/${day}/${year}`;
+    };
 
     const toggleGenderPicker = () => {
         setGenderPickerVisibility(!isGenderPickerVisible);
@@ -26,13 +34,18 @@ const CustomInput = ({ label, birthday, gender }) => {
 
     const handleConfirm = (date) => {
         console.warn('A date has been picked: ', date);
+        const formattedDate = formatDate(date);
+        setPickedDate(formattedDate);
         hideDatePicker();
     };
+    // console.log("gender==>", gender, selectedGender);
     return (
         <View>
             <TextInput
+                onFocus={onFocus}
                 label={label}
-                value={gender && selectedGender}
+                value={
+                    birthday ? pickedDate : gender ? selectedGender : ''}
                 style={styles.input}
                 mode="outlined"
                 outlineColor="#E7EBF3"
